@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald&display=swap');
+@import url('https://fonts.cdnfonts.com/css/din-pro-cond');
+
+.plyr{
+    font-family: 'DIN Pro Cond', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1, h2, h3{
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.nav-logo{
+    width: 180px;
+    padding: 25px;
+}
+
+.nav-link{
+color: white;
+font-size: 1.6em;
+font-weight: 400;
+font-family: 'Oswald', sans-serif;
+display: inline-block;
+margin-right: 1em;
+margin-top: auto;
+margin-bottom: auto;
+cursor: pointer;
+}
+
+.nav-link:hover{
+    text-decoration: underline;
+}
+
+.logIn{
+    border-left: 1px solid white;
+}
+
+.hero-title{
+    color: white;
+    font-size: 3.8em;
+}
+
+.button{
+    font-family: 'Fjalla One', sans-serif;
+    padding: 0.7rem;
+    border-radius: 5px;
+    border: solid 1px transparent;
+    font-size: 1.4em;
+    color: $dark-grey;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.button-big{
+    font-family: 'Fjalla One', sans-serif;
+    padding: 1rem;
+    border-radius: 5px;
+    border: solid 1px transparent;
+    font-size: 2em;
+    color: $dark-grey;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.button-blue{
+    background-color: $light-blue;
+    color: white;
+}
+
+.button-form{
+    background-color: $gold;
+    color: white;
+}
+
+.button:hover{
+    background-color: $dark-grey;
+    color: white;
+}
+
+.button-big:hover{
+    opacity: 0.65;
+}
+
+.button-blue:hover{
+    background-color: white;
+    color: $light-blue;
+}
+
+.ham-icon{
+    width:45px;
+    float: right;
+    padding-top: 30px;
+    cursor: pointer;
+}
+
+.subtitle{
+    background-color: $pink;
+    color: white;
+    text-transform: uppercase;
+    display: initial;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.subtitle-container{
+    display: block;
+    margin: 28px;
+}
+
+.input-form{
+    background-color: $card-bg;
+    color: white;
+    border-color: rgb(202, 200, 200);
+    border-width: 0px 0px 1px;
+    border-radius: 0px;
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    line-height: 32px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.team-card{
+    color: ivory;
+    border: 1px solid white;
+    padding: 1.5%;
+    font-family: 'DIN Pro Cond', sans-serif;
+    p{
+        font-size: 1.2em;
+    }
+    .team-name{
+        font-size: 1.6em;
+    }
+    .team-subtitle{
+        font-size: 1.4em;
+    }
+}
+
+.profile-icon{
+    width: 100%;
+    max-width: 40px;
+    min-width: 25px;
+}
+.profesor-name{
+    line-height: 1;
+    color: $light-blue;
+    font-size: 1.8em;
+    font-family: 'DIN Pro Cond', sans-serif;
+}
