@@ -1,6 +1,6 @@
 import React from 'react';
 import Hero from './../../components/Hero';
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 
 import NuestrosCursos from './../../components/NuestrosCursos';
 

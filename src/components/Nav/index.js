@@ -2,13 +2,15 @@ import React,{ useState, useContext } from 'react';
 import ham from './ham.png';
 import hamX from './ham-x.png';
 import { NavLink } from 'react-router-dom'
-import { LoginContext }  from './../../context/login-contex';
+import { useSelector, useDispatch } from "react-redux";
+import { Fade } from "react-awesome-reveal";
+
 
 export const Nav = () => {
 
-    const log = useContext(LoginContext);
-    console.log(log)
+    const login = useSelector( (state) => state.logInReducer );
 
+    console.log(login)
 
     const [ mobileMenuVisibility, setMobileMenuVisibility ] = useState('none');
 
@@ -36,7 +38,7 @@ export const Nav = () => {
             <NavLink className="nav-link" activeStyle={isActive} to="/entrenamientos">Entrenamientos</NavLink>
             <NavLink className="nav-link" activeStyle={isActive} to="/acerca">Acerca</NavLink>
             <NavLink className="nav-link" activeStyle={isActive} to="/contacto">Contacto</NavLink>
-            <NavLink className="nav-link logIn" activeStyle={isActive} to={"/"+log.route} > {log.info}</NavLink>
+             <NavLink className="nav-link logIn" activeStyle={isActive} to={"/"+login.route} > {login.nav}</NavLink>
             </div>
             <div className="col-sm-6 mobile">
                         <img src={ham} onClick={()=>{setMobileMenuVisibility('block')}} className="ham-icon" />
@@ -55,9 +57,11 @@ export const Nav = () => {
                             <NavLink onClick={handleDisplayNone} activeStyle={isActiveInMobile} className="menu-link-mobile" to="/entrenamientos">Entrenamientos</NavLink>
                             <NavLink onClick={handleDisplayNone} activeStyle={isActiveInMobile} className="menu-link-mobile" to="/acerca">Acerca</NavLink>
                             <NavLink onClick={handleDisplayNone} activeStyle={isActiveInMobile} className="menu-link-mobile" to="/contacto">Contacto</NavLink>
+                            <NavLink onClick={handleDisplayNone} activeStyle={isActiveInMobile} className="menu-link-mobile" to={"/"+login.route} > {login.nav}</NavLink>
                         </div>
                     </div>
                 </div>
+       
         </>
     )
 }

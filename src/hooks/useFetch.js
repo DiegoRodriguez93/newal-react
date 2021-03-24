@@ -10,8 +10,16 @@ export default function useFetch(url){
 
         const response = await axios(url);
 
-        setData(response.data);
-        setLoading(false);
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            setData(data)
+            setLoading(false);
+        });
+
+        /* setData(response.data); */
+        
 
     }
 

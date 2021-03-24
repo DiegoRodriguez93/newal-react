@@ -1,45 +1,95 @@
 import React, { useContext } from 'react'
-import Fade from 'react-reveal/Fade';
-import { LoginContext, login } from "./../../context/login-contex.js";
-import useLogIn from './../../hooks/useLogIn';
+import { Fade } from "react-awesome-reveal";
+import { useForm } from "react-hook-form";
+import onLogIn from './../../handler/onLogIn';
+
+import { useDispatch } from 'react-redux';
+import { logIn } from './../../redux/actions'; 
+
+import { useHistory } from 'react-router-dom';
 
 export default function IniciarSesion() {
 
-     const { info, setLogIn } = useContext(LoginContext);
-/*      const { log, setLogIn } = useLogIn(LoginContext); */
+    const { handleSubmit, register, errors } = useForm();
+    const dispatch = useDispatch();
+    const history = useHistory ();
 
-     const [refresh, setRefresh] = React.useState(false);
+     const onSubmit = (data, e) => {
+        onLogIn(data, e).then(
+            (res) => {
+                console.log(res);
+                dispatch(logIn(res.fname, res.lname, res.token));
 
-     console.log('asdasd')
+                localStorage.setItem('route','mi-cuenta');
+                localStorage.setItem('logState',true);
+                localStorage.setItem('nav','Mi cuenta');
+                localStorage.setItem('first_name',res.fname);
+                localStorage.setItem('last_name',res.lname);
+                localStorage.setItem('token',res.token);
 
-    const logInHandler = () => {
-        console.log(refresh)
-        setLogIn(login.logged)
-        setRefresh(true);
-      };
-
+                history.goBack();
+            })
+     };
 
     return (<Fade>
         <div className="container">
             <div className="row">
                 <div className="col-12">
                     <div className="card">
+                        <div className="row">
+                        <div className="col-lg-4 sm-0"></div>
+                    <div className="col-lg-4 sm-12">
                         <div className="card-titles">
-                            <h3>Iniciar sesión</h3>
-                            <h1>Pasión por el ajedrez</h1>
+                            <h2>Iniciar sesión</h2>
+                            <h3>Gracias por compartir el Ajedrez Latino :)</h3>
+                        </div>                        
+                    </div>
+                    <div className="col-lg-4 sm-0"></div>
                         </div>
-                        <div className="row" style={{marginTop:'30px'}}>
-                            <div className="col-lg-6 sm-12">
-                                <input type="email" className="input-form" placeholder="Correo electronico" />
+
+
+                        <form className="row" style={{marginTop:'30px'}} onSubmit={handleSubmit(onSubmit)}>
+                            <div className="col-lg-4 sm-0"></div>
+                            <div className="col-lg-4 sm-12">
+                            <label htmlFor="email" className="grey-label">Correo electrónico:</label>
+                            <input
+                                name="email"
+                                className="grey-input"
+                                ref={register({
+                                required: "Required",
+                                pattern: {
+                                    value: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+                                    message: "invalid email address"
+                                }
+                                })}
+                            />
+                            {errors.email && errors.email.message}
+
                             </div>
-                            <div className="col-12">
-                                <input type="password" className="input-form" placeholder="Contraseña" />
-                                {info}
+                            <div className="col-lg-4 sm-0"></div>
+                            <div className="col-lg-4 sm-0"></div>
+                            <div className="col-lg-4 sm-12">
+                                <label htmlFor="password" className="grey-label">Contraseña:</label>
+                            <input
+                                name="password"
+                                type="password"
+                                className="grey-input"
+                                ref={register({
+                                    required: "Required"
+                                })}
+                            />
+                            {errors.password && errors.password.message}
                             </div>
-                            <div className="col-12" style={{ textAlign:'center', marginTop:'30px' }}>
-                                <button onClick={()=>logInHandler()} className="button-big button-form">Iniciar Sesión</button>
+                            <div className="col-lg-4 sm-0"></div>
+                            <div className="col-lg-4 sm-0"></div>
+
+                            <div className="col-lg-4 sm-12">
+                            <button className="button-big button-form" type="submit">Iniciar sesión</button>
+                            <span className="other-links">- Olvidé mi contraseña</span> <br/>
+                            <span className="other-links">- Registrarme</span> 
                             </div>
-                        </div>
+                            <div className="col-lg-4 sm-0"></div>
+                            </form>
                     </div>
                 </div>
             </div>

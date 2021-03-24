@@ -59,8 +59,9 @@ cursor: pointer;
     padding: 1rem;
     border-radius: 5px;
     border: solid 1px transparent;
-    font-size: 2em;
+    font-size: 1.4em;
     color: $dark-grey;
+    width: 100%;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -70,8 +71,15 @@ cursor: pointer;
     color: white;
 }
 
+.button-pink{
+    background-color: $pink;
+    color: white;
+    display: block;
+    text-align: center;
+}
+
 .button-form{
-    background-color: $gold;
+    background-color: #4d8cf4;
     color: white;
 }
 
@@ -85,8 +93,11 @@ cursor: pointer;
 }
 
 .button-blue:hover{
-    background-color: white;
-    color: $light-blue;
+    opacity: 0.8;
+}
+
+.button-pink:hover{
+    opacity: 0.8;
 }
 
 .ham-icon{
@@ -151,4 +162,98 @@ cursor: pointer;
     color: $light-blue;
     font-size: 1.8em;
     font-family: 'DIN Pro Cond', sans-serif;
+}
+
+.grey-input{
+    background-color: #1f2329;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #1f2329;
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 22px;
+}
+
+.grey-label{
+    color:$light-grey;
+    font-size: 1.5em;
+    font-family: 'DIN Pro Cond', sans-serif;
+}
+
+.other-links{
+    color: white;
+    font-size: 1.5em;
+    font-family: 'DIN Pro Cond', sans-serif;
+    cursor: pointer;
+}
+
+.fa-fast-forward:before{
+    display: block;
+    content: ' ';
+    background-image: url('/img/forward.png');
+    background-size: 28px 28px;
+    height: 28px;
+    width: 28px;
+}
+
+.fa-adjust:before{
+    display: block;
+    content: ' ';
+    background-image: url('/img/loop.png');
+    background-size: 28px 28px;
+    height: 28px;
+    width: 28px;
+}
+
+
+.fa-fast-backward:before{
+    display: block;
+    content: ' ';
+    background-image: url('/img/backward.png');
+    background-size: 28px 28px;
+    height: 28px;
+    width: 28px;
+}
+
+.fa-step-forward:before{
+    display: block;
+    content: ' ';
+    background-image: url('/img/next.png');
+    background-size: 28px 28px;
+    height: 28px;
+    width: 28px;
+}
+
+.fa-step-backward:before{
+    display: block;
+    content: ' ';
+    background-image: url('/img/back.png');
+    background-size: 28px 28px;
+    height: 28px;
+    width: 28px;
+}
+
+.fa-play-circle:before{
+    display: block;
+    content: ' ';
+    background-image: url('/img/play.png');
+    background-size: 28px 28px;
+    height: 28px;
+    width: 28px;
+}
+
+.fa-pause-circle:before{
+    display: block;
+    content: ' ';
+    background-image: url('/img/pause.png');
+    background-size: 28px 28px;
+    height: 28px;
+    width: 28px;
+}
+
+.hr{
+    width: 100%;
+    color: $dark-grey;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

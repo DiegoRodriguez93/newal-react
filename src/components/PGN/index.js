@@ -16,13 +16,13 @@ export default function PGN() {
 
       useLayoutEffect(()=>{
         /* var start = */ board.pgnView('board', {pgn: pgn});
-      },[])
+      },[board])
 
     return (
         <div className="container">
             <div className="row">
-                <div className="col-12">
-                <div id="board" style={{height: width < 430 ? 400 : ((width / 3) + 100) ,width: width < 430 ? 300 : (width / 3)  }}></div>
+                <div className="col-12" style={{marginLeft:'auto', marginRight:'auto', textAlign:'center'}}>
+                <div id="board" style={{height: width < 430 ? 400 : ((width / 2.5) + 100) ,width: width < 430 ? (width - (width*0.2)) : (width / 2.5)  }}></div>
                 </div>  
             </div>
         </div>
